@@ -582,9 +582,10 @@ C     couplings
 
 !----------------------------------------------------------------
 
-      correction = (stopterm + btmtermt + toptermt + tneutterm + 
-     $     charginoterm )*
-     $     mtpole/(16.d0*pi*pi)
+!      correction = (stopterm + btmtermt + toptermt + tneutterm + 
+!     $     charginoterm )*
+!     $     mtpole/(16.d0*pi*pi)
+      correction = (stopterm +tneutterm +charginoterm )/(16.d0*pi*pi)
 
 c$$$      print*,"stopterm, btmtermt+toptermt, tneutterm, charginoterm, 
 c$$$     $mt, mtpole, alphas = ", stopterm, btmtermt+toptermt, tneutterm, 
@@ -1156,9 +1157,11 @@ C          Neutralinos
 
 !------------------------------------------------------------------------------
 
-      correction = (- stopterm - (toptermt + btmtermt +
-     $     tneutterm + charginoterm) /(16.d0*pi*pi))
+!      correction = (- stopterm - (toptermt + btmtermt +
+!     $     tneutterm + charginoterm) /(16.d0*pi*pi))
 
+      correction = (-stopterm-(tneutterm+charginoterm)/(16.d0*pi*pi))
+      
 c$$$      print*,"in btmcr stopterm, topterm, btmterm, neutterm, 
 c$$$     $     charterm, mb = ", stopterm, toptermt, btmtermt, tneutterm, 
 c$$$     $     charginoterm, mb
@@ -1628,8 +1631,10 @@ C        Mass eignebasis of charginos
 
 !----------------------------------------------------------
 
-      correction = (charginoterm + btmtermt + toptermt + tneutterm)
-     $     /((16.d0*pi*pi))  
+!      correction = (charginoterm + btmtermt + toptermt + tneutterm)
+!     $     /((16.d0*pi*pi))  
+
+      correction = (charginoterm + tneutterm)/((16.d0*pi*pi)) 
 
 c$$$      print*,"neut, char, higgs = ", tneutterm ,
 c$$$     $     charginoterm ,(btmtermt+toptermt)
