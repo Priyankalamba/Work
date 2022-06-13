@@ -697,8 +697,8 @@ c$$$      if(rhn.eq.1)then
 c$$$         sleps = 0.d0
 c$$$      endif
 
-      ans = smp + charginoterm + neutterm + sumHz + smHz + susyp 
-     $     + sleps
+      ans = charginoterm + neutterm + susyp + sleps
+!      ans = smp +  sumHz + smHz 
 
       pizzT = ans *
      $     (g**2.d0)/((costhw**2.d0) * 16.d0 *(pi**2.d0))
@@ -1224,7 +1224,8 @@ c$$$      if(rhn.eq.1)then
 c$$$         sleps = 0.d0
 c$$$      endif
 
-      ans =  sumHz + smHz  + npchino + susyp + smp + sleps
+      ans =  npchino + susyp + sleps
+!      ans =  sumHz + smHz + smp
 
       piwwT =  ans * ((g**2.d0)/(16.d0 * (pi**2.d0))) 
 
@@ -2042,7 +2043,7 @@ c$$$      call mat3prod2d(OCR,bchiposA,OCLdag,b2chiposA)
       piaaT = (charginoterm + neutterm + smp + susyp + smHz + susyp1 
      $            + sumHz)/(16.d0 * pi*pi)
 
-
+!      piaaT = (smp + smHz + sumHz)/(16.d0 * pi*pi)
       RETURN
 
       END SUBROUTINE piaa
@@ -2938,9 +2939,8 @@ C===============================================================================
      $     (geL * ssqthe - csqthe * geR) * b22tmeRmeR)))))
 
 !------------------------
-
-      result = (((smterm - higgsterm + charginoterm - 
-     $     sfermionterm)*e*g)/(16.d0 * pi*pi*costhw))
+!      result = (((smterm - higgsterm )*e*g)/(16.d0 * pi*pi*costhw))
+      result = (((charginoterm-sfermionterm)*e*g)/(16.d0*pi*pi*costhw))
 
       return
       end subroutine pizgamma
